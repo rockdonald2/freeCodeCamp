@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Random Quote Generator</title>
+        <link rel="stylesheet"
+            type="text/css"
+            href="RandomQuoteGenerator.css">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap"
+            rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible"
+            content="ie=edge">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="quote-container"
+                id="quote-box">
+                <div class="text-box">
+                    <div class="text"
+                        id="text"></div>
+                </div>
+                <div class="author-box">
+                    <div class="author"
+                        id="author"></div>
+                </div>
+                <div class="button-box">
+                    <a href="https://www.twitter.com/intent/tweet"
+                        id="tweet-quote"
+                        target="_blank"
+                        class="tweet-quote">
+                        <svg class="tweet-quote__icon">
+                            <use xlink:href="img/sprite.svg#icon-twitter"></use>
+                        </svg>
+                    </a>
+                    <button class="new-quote"
+                        id="new-quote">
+                        <svg class="new-quote__icon">
+                            <use xlink:href="img/sprite.svg#icon-flickr"></use>
+                        </svg>
+                        <p>New Quote</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            type="text/javascript"></script>
+        <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"
+            type="text/javascript"></script>
+        <script src="RandomQuoteGenerator.js"
+            type="text/javascript"></script>
+    </body>
+
+</html>

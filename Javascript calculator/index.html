@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Javascript calculator</title>
+        <link rel="stylesheet"
+            type="text/css"
+            href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            type="text/css"
+            href="calculator.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap"
+            rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible"
+            content="ie=edge">
+    </head>
+
+    <body>
+        <div class="container">
+            <form name="form" class="form">
+                <input class="textview" name="textview" disabled>
+            </form>
+            <table class="table" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><input type="button" value="AC"></td>
+                    <td><input type="button" value="/" class="operator"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" class="number"></td>
+                    <td><input type="button" value="8" class="number"></td>
+                    <td><input type="button" value="9" class="number"></td>
+                    <td><input type="button" value="x" class="operator"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" class="number"></td>
+                    <td><input type="button" value="5" class="number"></td>
+                    <td><input type="button" value="6" class="number"></td>
+                    <td><input type="button" value="-" class="operator"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" class="number"></td>
+                    <td><input type="button" value="2" class="number"></td>
+                    <td><input type="button" value="3" class="number"></td>
+                    <td><input type="button" value="+" class="operator"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="0" class="number"></td>
+                    <td><input type="button" value="." class="operator"></td>
+                    <td><input type="button" value="=" class="operator"></td>
+                </tr>
+            </table>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #7f8fa6; }
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  background-color: #161616;
+  width: 70rem;
+  height: 70rem;
+  padding: 0; }
+
+.textview {
+  display: block;
+  width: 98%;
+  margin: .3rem auto;
+  height: 10rem;
+  background-color: #161616; }
+
+.table {
+  margin: 0;
+  width: 100%;
+  height: calc(100% - 10rem);
+  border-collapse: collapse;
+  max-height: 59.5rem; }
+  .table td,
+  .table th {
+    border: none;
+    padding: .1rem;
+    margin: 0; }
+
+td,
+tr,
+tbody {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-spacing: 0; }
+
+input {
+  width: 100%;
+  height: 100%;
+  font-size: 2.2rem;
+  border: 2px solid transparent;
+  background-color: #dfe6e9; }
+
+input[value="AC"] {
+  width: 213%; }
+
+input[value="/"] {
+  margin-left: 204%; }
+
+input[value="0"] {
+  width: 156.5%; }
+
+input[value="."] {
+  margin-left: 101.5%; }
+
+input[value="="] {
+  margin-left: 102%; }
+
+input[value="AC"] {
+  background-color: #d63031; }
+
+input[value="="] {
+  background-color: #0984e3; }
+
+.operator {
+  background-color: #353b48; }
+
+.number {
+  background-color: #2f3640; }
