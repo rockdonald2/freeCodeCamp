@@ -24,15 +24,29 @@ body {
   display: block;
   background-color: #161616;
   width: 70rem;
-  height: 70rem;
+  height: 70.5rem;
   padding: 0; }
+
+.textviewInput {
+  display: block;
+  width: 99.8%;
+  max-width: 99.8%;
+  margin: .3rem auto;
+  height: 3rem;
+  padding: 1rem;
+  background-color: #161616;
+  color: #d63031;
+  text-align: right; }
 
 .textview {
   display: block;
-  width: 98%;
+  width: 99.8%;
+  max-width: 99.8%;
   margin: .3rem auto;
-  height: 10rem;
-  background-color: #161616; }
+  height: 7rem;
+  padding: 1rem;
+  background-color: #161616;
+  color: #ccc; }
 
 .table {
   margin: 0;
@@ -59,31 +73,60 @@ input {
   height: 100%;
   font-size: 2.2rem;
   border: 2px solid transparent;
-  background-color: #dfe6e9; }
+  background-color: #dfe6e9;
+  outline: none; }
 
 input[value="AC"] {
-  width: 213%; }
+  width: 212.9%;
+  background-color: #d63031;
+  transition: all .2s ease; }
+  input[value="AC"]:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 input[value="/"] {
-  margin-left: 204%; }
+  margin-left: 203%;
+  transition: all .2s ease; }
+  input[value="/"]:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 input[value="0"] {
-  width: 156.5%; }
+  width: 156.5%;
+  transition: all .2s ease; }
+  input[value="0"]:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 input[value="."] {
-  margin-left: 101.5%; }
+  margin-left: 101.5%;
+  transition: all .2s ease; }
+  input[value="."]:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 input[value="="] {
-  margin-left: 102%; }
-
-input[value="AC"] {
-  background-color: #d63031; }
-
-input[value="="] {
-  background-color: #0984e3; }
+  margin-left: 101.7%;
+  background-color: #0984e3;
+  transition: all .2s ease; }
+  input[value="="]:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 .operator {
-  background-color: #353b48; }
+  background-color: #353b48;
+  transition: all .2s ease; }
+  .operator:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
 
 .number {
-  background-color: #2f3640; }
+  background-color: #2f3640;
+  transition: all .2s ease; }
+  .number:hover {
+    border: 2px solid #dfe6e9;
+    color: #dfe6e9; }
+
+.textviewInput:hover,
+.textview:hover {
+  border: 2px solid transparent !important; }

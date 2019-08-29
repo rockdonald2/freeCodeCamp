@@ -37,18 +37,39 @@ body {
     display: block;
     background-color: $color-primary;
     width: 70rem;
-    height: 70rem;
+    height: 70.5rem;
 
     padding: 0;
 }
 
-.textview {
+.textviewInput {
     display: block;
-    width: 98%;
+    width: 99.8%;
+    max-width: 99.8%;
     margin: .3rem auto;
-    height: 10rem;
+    height: 3rem;
+
+    padding: 1rem;
     
     background-color: $color-primary;
+
+    color: #d63031;
+
+    text-align: right;
+}
+
+.textview {
+    display: block;
+    width: 99.8%;
+    max-width: 99.8%;
+    margin: .3rem auto;
+    height: 7rem;
+
+    padding: 1rem;
+    
+    background-color: $color-primary;
+
+    color: #ccc;
 }
 
 .table {
@@ -85,40 +106,66 @@ input {
 
     border: 2px solid transparent;
     background-color: $color-secondary;
+
+    outline: none;
+}
+
+@mixin hover-effect {
+    transition: all .2s ease;
+
+    &:hover {
+        border: 2px solid $color-secondary;
+        color: $color-secondary;
+    }
 }
 
 input[value="AC"] {
-    width: 213%;
+    width: 212.9%;
+    background-color: #d63031;
+
+    @include hover-effect();
 }
 
 input[value="/"] {
-    margin-left: 204%;
+    margin-left: 203%;
+
+    @include hover-effect();
 }
 
 input[value="0"] {
     width: 156.5%;
+
+    @include hover-effect();
 }
 
 input[value="."] {
     margin-left: 101.5%;
+
+    @include hover-effect();
 }
 
 input[value="="] {
-    margin-left: 102%;
-}
-
-input[value="AC"] {
-    background-color: #d63031;
-}
-
-input[value="="] {
+    margin-left: 101.7%;
     background-color: #0984e3;
+
+    @include hover-effect();
 }
 
 .operator {
     background-color: $color-operators;
+
+    @include hover-effect();
 }
 
 .number {
     background-color: $color-numbers;
+
+    @include hover-effect();
+}
+
+.textviewInput,
+.textview {
+    &:hover {
+        border: 2px solid transparent !important;
+    }
 }
