@@ -6,9 +6,6 @@
         <title>Javascript calculator</title>
         <link rel="stylesheet"
             type="text/css"
-            href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet"
-            type="text/css"
             href="calculator.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap"
             rel="stylesheet">
@@ -21,39 +18,93 @@
 
     <body>
         <div class="container">
-            <form name="form" class="form">
-                <input class="textviewInput" name="textviewInput" value="" id="displayInput" disabled>
-                <input class="textview" name="textview" value="0" id="display" disabled>
+            <form name="form"
+                class="form">
+                <input class="textviewInput"
+                    name="textviewInput"
+                    value=""
+                    id="displayInput"
+                    disabled>
+                <input class="textview"
+                    name="textview"
+                    value="0"
+                    id="display"
+                    disabled>
             </form>
-            <table class="table" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td><input type="button" value="AC" id="clear"></td>
-                    <td><input type="button" value="/" class="operator" id="divide"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="7" class="number" id="seven"></td>
-                    <td><input type="button" value="8" class="number" id="eight"></td>
-                    <td><input type="button" value="9" class="number" id="nine"></td>
-                    <td><input type="button" value="x" class="operator" id="multiply"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="4" class="number" id="four"></td>
-                    <td><input type="button" value="5" class="number" id="five"></td>
-                    <td><input type="button" value="6" class="number" id="six"></td>
-                    <td><input type="button" value="-" class="operator" id="subtract"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="1" class="number" id="one"></td>
-                    <td><input type="button" value="2" class="number" id="two"></td>
-                    <td><input type="button" value="3" class="number" id="three"></td>
-                    <td><input type="button" value="+" class="operator" id="add"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="0" class="number" id="zero"></td>
-                    <td><input type="button" value="." class="operator" id="decimal"></td>
-                    <td><input type="button" value="=" class="operator" id="equals"></td>
-                </tr>
-            </table>
+            
+            <div class="calculator">
+                <input type="button"
+                    value="AC"
+                    id="clear"></<input>
+                <input type="button"
+                    value="/"
+                    class="operator"
+                    id="divide"></<input>
+
+                <input type="button"
+                    value="7"
+                    class="number"
+                    id="seven"></<input>
+                <input type="button"
+                    value="8"
+                    class="number"
+                    id="eight"></<input>
+                <input type="button"
+                    value="9"
+                    class="number"
+                    id="nine"></<input>
+                <input type="button"
+                    value="x"
+                    class="operator"
+                    id="multiply"></<input>
+
+                <input type="button"
+                    value="4"
+                    class="number"
+                    id="four"></<input>
+                <input type="button"
+                    value="5"
+                    class="number"
+                    id="five"></<input>
+                <input type="button"
+                    value="6"
+                    class="number"
+                    id="six"></<input>
+                <input type="button"
+                    value="-"
+                    class="operator"
+                    id="subtract"></<input>
+
+                <input type="button"
+                    value="1"
+                    class="number"
+                    id="one"></<input>
+                <input type="button"
+                    value="2"
+                    class="number"
+                    id="two"></<input>
+                <input type="button"
+                    value="3"
+                    class="number"
+                    id="three"></<input>
+                <input type="button"
+                    value="+"
+                    class="operator"
+                    id="add"></<input>
+
+                <input type="button"
+                    value="0"
+                    class="number"
+                    id="zero"></<input>
+                <input type="button"
+                    value="."
+                    class="operator"
+                    id="decimal"></<input>
+                <input type="button"
+                    value="="
+                    class="operator"
+                    id="equals"></td>
+            </div>
         </div>
 
         <script src="node_modules/jquery/dist/jquery.min.js"></script>

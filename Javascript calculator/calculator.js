@@ -1,19 +1,23 @@
 $(document).ready(() => {
+    // inserts a value directly into the value attribute
     function insert(newValue) {
         $('.textview').val($('.textview').val() + newValue);
         $('.textviewInput').val($('.textviewInput').val() + newValue);
     }
 
+    // initialized state
     function clear() {
         clearAll();
         insert(0);
     }
 
+    // clears the value attributes
     function clearAll() {
         $('.textview').val("");
         $('.textviewInput').val("");
     }
 
+    // changes the operator, excluding the minus operator
     function changeOperator() {
         let bufferOutput = [...$('.textview').val()];
         let bufferInput = [...$('.textviewInput').val()];
@@ -32,17 +36,21 @@ $(document).ready(() => {
         $('.textviewInput').val(bufferInput.join(""));
     }
 
+    // actual calculation
     function resolve() {
         if ($('.textview').val() != "") {
+            // separate arrays for the numbers and operators
             let array = [];
             let operatorIndeces = [];
 
+            // keep track of the operators
             for (let i = 0; i < $('.textview').val().length; i++) {
                 if ($('.textview').val()[i] == "/" || $('.textview').val()[i] == 'x' || $('.textview').val()[i] == "-" || $('.textview').val()[i] == "+") {
                     operatorIndeces.push(i);
                 }
             }
 
+            // keep track of the numbers
             let digit = 0;
             for (let j = 0; j < operatorIndeces.length; j++) {
                 array.push($('.textview').val().slice(digit, operatorIndeces[j]));
@@ -52,23 +60,30 @@ $(document).ready(() => {
 
             array.push($('.textview').val().slice(digit, $('.textview').val().length));
 
+            // keep track of the negative numbers
             for (let y = 0; y < operatorIndeces.length; y++) {
                 if ($('.textview').val()[operatorIndeces[y]] == "-") {
                     array[y + 1] = "-" + array[y + 1];
                 }
             }
 
+            // remove empty array elements
             for (let u = 0; u < array.length; u++) {
                 if (array[u] == "") {
                     array.splice(u, 1);
                 }
             }
 
-            console.log(array, operatorIndeces);
+            // if the first operator is a minus operator then discard it
+            if ($('.textview').val()[operatorIndeces[0]] == "-") {
+                operatorIndeces.shift();
+            }
 
+            // calculation
             let z = 0;
             while (z != operatorIndeces.length) {
 
+                // first the higher operators
                 if (operatorIndeces.length > 1) {
                     for (let i = 0; i < operatorIndeces.length; i++) {
                         if ($('.textview').val()[operatorIndeces[i]] == "x" || $('.textview').val()[operatorIndeces[i]] == "/") {
@@ -78,7 +93,7 @@ $(document).ready(() => {
                                     array.splice(i, 2);
                                     break;
                                 case "/":
-                                    array.splice(i + 2, 0, (Number(array[i]) / Number(array[i + 1])).toString());
+                                    array.splice(i + 2, 0, (parseFloat(array[i]) / parseFloat(array[i + 1])).toPrecision(4).toString());
                                     array.splice(i, 2);
                                     break;
                             }
@@ -88,9 +103,10 @@ $(document).ready(() => {
                     }
                 }
 
+                // then the normal logic flow
                 switch ($('.textview').val()[operatorIndeces[0]]) {
                     case "/":
-                        array.splice(2, 0, Number(array[0]) / Number(array[1]));
+                        array.splice(2, 0, (parseFloat(array[0]) / parseFloat(array[1])).toPrecision(4));
                         array.splice(0, 2);
                         break;
                     case "x":
@@ -114,11 +130,13 @@ $(document).ready(() => {
                 operatorIndeces.shift();
             }
 
+            // clear the output's value attribute then insert the new value
             $('.textview').val("");
             insert(array[0]);
         }
     }
 
+    // buttons
     $('input[value="0"]').click(() => {
         if ($('.textview').val()[0] == 0) {
             clearAll();
