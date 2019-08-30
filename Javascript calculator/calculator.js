@@ -75,9 +75,11 @@ $(document).ready(() => {
             }
 
             // if the first operator is a minus operator then discard it
-            if ($('.textview').val()[operatorIndeces[0]] == "-") {
+            if ($('.textview').val()[operatorIndeces[0]] == "-" && operatorIndeces[0] == 0) {
                 operatorIndeces.shift();
             }
+
+            console.log(array, operatorIndeces);
 
             // calculation
             let z = 0;
