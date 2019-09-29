@@ -1,0 +1,76 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 100%;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); }
+
+img {
+  width: 100%; }
+
+table {
+  border-collapse: collapse;
+  border: 3px solid #ccc;
+  margin-bottom: 1rem; }
+
+th, tr, td {
+  border: 3px solid #ccc; }
+
+pre, code {
+  background-color: #eee;
+  padding: .25rem; }
+
+ul > li {
+  margin-left: 1rem; }
+
+ol {
+  margin-left: 1rem; }
+
+.editor {
+  width: 80%;
+  margin: 0 auto; }
+
+#editor {
+  width: 100%;
+  padding: 1rem; }
+
+.bug {
+  min-width: 100%;
+  margin: 0 auto; }
+
+#preview {
+  min-width: 100%;
+  min-height: 50rem;
+  border: 3px solid #ccc;
+  padding: 2rem;
+  background-color: #fff; }
+
+textarea {
+  border: 3px solid #ccc; }
+
+.toolbar {
+  border: 3px solid #ccc;
+  border-bottom: none;
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #0575e6, #021b79); }
+
+blockquote {
+  border-left: 5px solid #ccc;
+  padding-left: 0.5em; }
+
+pre {
+  padding: 0 1.5em; }
+
+img {
+  width: 100%; }
+
+#preview h1, h2, h3, h4, h5, h6, p {
+  padding: 0.25em; }

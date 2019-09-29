@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+*::selection {
+  background-color: none;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.arrow {
+  font-size: 3rem;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+
+.number {
+  font-size: 2.4rem;
+}
+
+#title {
+  font-size: 3.6rem;
+}
+
+#time-left {
+  font-size: 3.2rem;
+}
+
+#start_stop,
+#reset {
+  font-size: 2.4rem;
+  cursor: pointer;
+}

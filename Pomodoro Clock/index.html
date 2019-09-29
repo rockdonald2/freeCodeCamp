@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+      content="ie=edge">
+    <title>Pomodoro Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class="header w-100 text-center mt-5 text-light">Pomodoro Clock</h1>
+      </div>
+      <div class="row mt-5">
+        <div class="col-6 text-center">
+          <h2 class="header text-light" id="break-label">Break Length</h2>
+          <div class="d-inline-block text-light arrow" id="break-decrement">&darr;</div>
+          <div class="d-inline-block text-light number" id="break-length">5</div>
+          <div class="d-inline-block text-light arrow" id="break-increment">&uarr;</div>
+        </div>
+        <div class="col-6 text-center">
+          <h2 class="header text-light" id="session-label">Session Length</h2>
+          <div class="d-inline-block text-light arrow" id="session-decrement">&darr;</div>
+          <div class="d-inline-block text-light number" id="session-length">25</div>
+          <div class="d-inline-block text-light arrow" id="session-increment">&uarr;</div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <h2 class="header text-light w-100 text-center" id="timer-label">Session</h2>
+        <div class="text-light w-100 text-center" id="time-left">25:00</div>
+      </div>
+      <div class="row mt-5 d-flex align-center justify-content-center">
+        <div id="start_stop" class="text-light">&#9658;&#10074;&#10074;</div>
+        &nbsp;
+        <div id="reset" class="text-light">&#9899;</div>
+      </div>
+    </div>
+
+
+    <audio src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" id="beep"></audio>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+
+</html>
