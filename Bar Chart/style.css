@@ -20,7 +20,7 @@ body {
 }
 
 .chart {
-    width: 100rem;
+    width: 110rem;
     height: 75rem;
     background-color: #fff;
     border-radius: 10px;
@@ -47,14 +47,14 @@ body {
 }
 
 .active {
-    fill: #e74c3c;
+    fill: #666;
 }
 
 .tooltip {
     font-size: 1.4rem;
     position: absolute;
     left: -9999px;
-    background-color: #c03a2bab;
+    background-color: #666;
     padding: 1rem 2rem;
     border-radius: 5px;
     color: #fff;

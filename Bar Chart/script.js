@@ -6,7 +6,7 @@
 
     const margin = {
         'top': 20,
-        'left': 60,
+        'left': 50,
         'right': 30,
         'bottom': 100
     }
@@ -31,20 +31,46 @@
             return d[1];
         })]).range([height, 0]);
 
+        const bar_w = 5;
+
         const makeLegend = function () {
             const xAxis = d3.axisBottom(scaleX).tickFormat(d3.timeFormat('%Y'));
-            svg.append('g').attr('id', 'x-axis').attr('transform', 'translate(' + margin.left + ', ' + (height) + ')').call(xAxis);
+            svg.append('g').attr('id', 'x-axis').attr('transform', 'translate(' + margin.left + ', ' + (height) + ')').call(xAxis)
+                .call(function (g) {
+                    g.select('.domain').attr('display', 'none');
+                })
+                .call(function (g) {
+                    g.selectAll('text').style('font-size', '1.2rem')
+                });
 
-            const yAxis = d3.axisLeft(scaleY).tickFormat(d3.format('d')).ticks(5);
-            svg.append('g').attr('id', 'y-axis').attr('transform', 'translate(' + margin.left + ', 0)').call(yAxis);
+            const yAxis = d3.axisLeft(scaleY).tickFormat(d3.format('.2s')).ticks(5);
+            svg.append('g').attr('id', 'y-axis').attr('transform', 'translate(' + margin.left + ', 0)').call(yAxis)
+                .call(function (g) {
+                    g.append('text').text('GDP billion $').attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')').style('font-size', '1.2rem')
+                        .attr('fill', '#000');
+                })
+                .call(function (g) {
+                    g.select('.domain').attr('display', 'none');
+                })
+                .call(function (g) {
+                    g.selectAll('line').attr('x1', 0).attr('x2', width + bar_w).attr('stroke', '#666').attr('stroke-opacity', .75).attr('stroke-width', '1px');
+                })
+                .call(function (g) {
+                    g.selectAll('text').style('font-size', '1.2rem')
+                });
         }
 
         makeLegend();
 
-        const bar_w = 3;
+        const barGroup = svg.append('g').attr('class', 'barGroup');
+
+        const mouseG = svg.append('g').attr('class', 'mouse-over-effects');
+
+        mouseG.append('path').attr('class', 'mouse-line').style('stroke', '#A9A9A9')
+            .style('stroke-width', '1px').style('opacity', 0);
 
         const update = function () {
-            const bars = svg.selectAll('.bar').data(data.data);
+            const bars = barGroup.selectAll('.bar').data(data.data);
 
             bars.enter().append('rect').attr('class', 'bar')
                 .attr('x', function (d) {
@@ -56,6 +82,11 @@
                 .attr('data-gdp', function (d) {
                     return d[1];
                 })
+                .attr('width', bar_w)
+                .attr('fill', '#1abc9c')
+                .attr('y', height)
+                .attr('height', 0)
+                .merge(bars)
                 .on('mouseenter', function (d) {
                     d3.select(this).classed('active', true);
 
@@ -67,6 +98,33 @@
                     const value = tooltip.select('p#value');
 
                     const date = new Date(d[0]);
+
+                    const label = svg.append('g').attr('id', 'label');
+                    const line = label.append('line').attr('id', 'line')
+                        .attr('x1', margin.left).attr('x2', function () {
+                            return scaleX(date) + margin.left;
+                        })
+                        .attr('y1', function () {
+                            return scaleY(d[1]);
+                        })
+                        .attr('y2', function () {
+                            return scaleY(d[1]);
+                        })
+                        .attr('stroke', '#666').attr('stroke-dasharray', '.25rem');
+                    const text = label.append('text').attr('id', 'text')
+                        .text(function () {
+                            return d3.format('.2s')(d[1]);
+                        })
+                        .attr('transform', function () {
+                            if (d[1] < 4000) {
+                                return 'translate(' + margin.left + ', ' + (scaleY(d[1]) - 5) + ')'
+                            }
+
+                            return 'translate(' + margin.left + ', ' + (scaleY(d[1]) + 15) + ')'
+                        })
+                        .attr('fill', '#666')
+                        .style('pointer-events', 'none')
+                        .style('font-size', '1.2rem');
 
                     const qtr = function (date) {
 
@@ -97,14 +155,10 @@
                 })
                 .on('mouseout', function (d) {
                     d3.select(this).classed('active', false);
+                    d3.select('#label').remove();
                     tooltip.style('opacity', 0);
                     tooltip.style('left', '-9999px');
                 })
-                .attr('width', bar_w)
-                .attr('fill', '#2980b9')
-                .attr('y', height)
-                .attr('height', 0)
-                .merge(bars)
                 .transition().duration(1000)
                 .attr('y', function (d) {
                     return scaleY(d[1]);
